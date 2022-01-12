@@ -47,3 +47,11 @@ var produto = {
     }
 };
 produto.validarProduto();
+var contato = {
+    nome: 'Bruno',
+    tel1: '87286138',
+    tel2: null
+};
+console.log(contato.nome);
+console.log(contato.tel1);
+console.log(contato.tel2);
