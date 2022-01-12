@@ -30,3 +30,20 @@ var nota = 10;
 console.log("Minha nota \u00E9 " + nota);
 nota = '10';
 console.log("Minha nota \u00E9 " + nota);
+// Never
+function falha(msg) {
+    throw new Error(msg);
+}
+var produto = {
+    nome: 'Sabão',
+    preco: 4,
+    validarProduto: function () {
+        if (!this.nome || this.nome.trim().length == 0) {
+            falha('Precisa ter um nome');
+        }
+        if (this.preco <= 0) {
+            falha('Preco inválido!');
+        }
+    }
+};
+produto.validarProduto();
