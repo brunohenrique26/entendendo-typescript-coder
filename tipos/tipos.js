@@ -55,4 +55,17 @@ var contato = {
 console.log(contato.nome);
 console.log(contato.tel1);
 console.log(contato.tel2);
+var contaBancaria = {
+    saldo: 3456,
+    depositar: function (valor) {
+        this.saldo += valor;
+    }
+};
+var correntista = {
+    nome: 'Bruno',
+    contaBancaria: contaBancaria,
+    contatos: ['34813105', '33792256']
+};
+correntista.contaBancaria.depositar(3000);
+console.log(correntista);
 //# sourceMappingURL=tipos.js.map
