@@ -55,3 +55,4 @@ var contato = {
 console.log(contato.nome);
 console.log(contato.tel1);
 console.log(contato.tel2);
+//# sourceMappingURL=tipos.js.map
