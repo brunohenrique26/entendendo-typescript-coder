@@ -42,4 +42,18 @@ var caracteristicas = ['motor Ztec 1.8', 2020];
 var motor = caracteristicas[0], ano = caracteristicas[1];
 console.log(motor);
 console.log(ano);
+// Destructuring (objeto)
+var item = {
+    nome: 'SD',
+    preco: 200,
+    caracteristicas: {
+        w: 'importado'
+    }
+};
+//const nomeItem = item.nome
+//const precoItem = item.preco
+var n = item.nome, p = item.preco, w = item.caracteristicas.w;
+console.log(n);
+console.log(p);
+console.log(w);
 //# sourceMappingURL=ecmascript.js.map

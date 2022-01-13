@@ -51,3 +51,21 @@ function contagemRegressiva(inicio: number = 5,
     const [motor, ano] = caracteristicas
     console.log(motor)
     console.log(ano)
+
+    // Destructuring (objeto)
+
+    const item = {
+        nome: 'SD',
+        preco:200,
+        caracteristicas: {
+          w: 'importado'
+        } 
+    }
+
+    //const nomeItem = item.nome
+    //const precoItem = item.preco
+
+    const { nome: n, preco: p, caracteristicas: { w } } = item
+    console.log(n)
+    console.log(p)
+    console.log(w)
