@@ -81,3 +81,33 @@ function contagemRegressiva(inicio: number = 5,
     console.log(boasVindas)
     console.log(`${(1 + 1) * 30 }`)
     console.log(`Motor ${caracteristicas}`)
+
+    // callback (funcçoes assicronas)
+
+    function esperar3s(callback: (dado: string) => void) {
+        setTimeout(()=> {
+            callback('3s depois ...')
+        }, 3000)
+    }
+esperar3s(function(resultado: string){
+    console.log(resultado)
+})
+   // Promise resolve
+    function esperar3sPromise () {
+        return new Promise((resolve: any)=> {
+            setTimeout(() => {
+                resolve('3s depois ...')
+            },3000)
+        })
+    }
+
+    esperar3sPromise()
+    .then(dado => console.log(dado))
+
+    fetch('https://swapi.dev/api/people/1')
+    .then(res => res.json())
+    .then(personagem => personagem.films())
+    .then(films => fetch(films[0]))
+    .then(resFilm => resFilm.json())
+    .then(film => console.log(film.title))
+    .catch(err => console.log('Cacth!!!' + err))

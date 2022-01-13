@@ -1,4 +1,4 @@
 "use strict";
-var a = 'Testw TS!';
+const a = 'Testw TS!';
 console.log(a);
 //# sourceMappingURL=basico.js.map
