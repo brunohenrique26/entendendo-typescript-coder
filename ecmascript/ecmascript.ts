@@ -23,3 +23,13 @@ function contagemRegressiva(inicio: number = 5,
 
     contagemRegressiva()
     contagemRegressiva(3)
+
+    // Rest & Spread
+
+    const numbers = [1,2,3,99,5]
+    console.log(Math.max(...numbers))
+
+    const turmaA: string[] = ['Bruno', 'Aline', 'Jessica']
+    const turmaB: string[] = [ 'Maria', 'João', 'Lopes', ...turmaA]
+
+    console.log(turmaB)

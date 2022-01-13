@@ -19,4 +19,10 @@ function contagemRegressiva(inicio, fim) {
 console.log('Fim');
 contagemRegressiva();
 contagemRegressiva(3);
+// Rest & Spread
+var numbers = [1, 2, 3, 99, 5];
+console.log(Math.max.apply(Math, numbers));
+var turmaA = ['Bruno', 'Aline', 'Jessica'];
+var turmaB = ['Maria', 'João', 'Lopes'].concat(turmaA);
+console.log(turmaB);
 //# sourceMappingURL=ecmascript.js.map
