@@ -1,9 +1,9 @@
 "use strict";
-let nome = 'jõao';
+var nome = 'jõao';
 console.log(nome);
-let funcionario = {
+var funcionario = {
     supervisores: ['Bruno', 'Jhow'],
-    baterPonto: (horario) => {
+    baterPonto: function (horario) {
         if (horario <= 8) {
             return 'Ponto Normal';
         }
@@ -12,9 +12,9 @@ let funcionario = {
         }
     }
 };
-let funcionario2 = {
+var funcionario2 = {
     supervisores: ['Carlos', 'Felipe'],
-    baterPonto: (horario) => {
+    baterPonto: function (horario) {
         if (horario <= 8) {
             return 'Ponto Normal';
         }
@@ -26,18 +26,18 @@ let funcionario2 = {
 console.log(funcionario.supervisores);
 console.log(funcionario.baterPonto(8));
 // Union Types
-let nota = 10;
-console.log(`Minha nota é ${nota}`);
+var nota = 10;
+console.log("Minha nota \u00E9 " + nota);
 nota = '10';
-console.log(`Minha nota é ${nota}`);
+console.log("Minha nota \u00E9 " + nota);
 // Never
 function falha(msg) {
     throw new Error(msg);
 }
-const produto = {
+var produto = {
     nome: 'Sabão',
     preco: 4,
-    validarProduto() {
+    validarProduto: function () {
         if (!this.nome || this.nome.trim().length == 0) {
             falha('Precisa ter um nome');
         }
@@ -47,7 +47,7 @@ const produto = {
     }
 };
 produto.validarProduto();
-let contato = {
+var contato = {
     nome: 'Bruno',
     tel1: '87286138',
     tel2: null
@@ -55,13 +55,13 @@ let contato = {
 console.log(contato.nome);
 console.log(contato.tel1);
 console.log(contato.tel2);
-let contaBancaria = {
+var contaBancaria = {
     saldo: 3456,
-    depositar(valor) {
+    depositar: function (valor) {
         this.saldo += valor;
     }
 };
-let correntista = {
+var correntista = {
     nome: 'Bruno',
     contaBancaria: contaBancaria,
     contatos: ['34813105', '33792256']

@@ -1,6 +1,6 @@
 "use strict";
 function saudar(isManha) {
-    let saudacao;
+    var saudacao;
     if (isManha) {
         saudacao = "Bom dia";
     }
