@@ -56,4 +56,12 @@ var n = item.nome, p = item.preco, w = item.caracteristicas.w;
 console.log(n);
 console.log(p);
 console.log(w);
+//Template String
+var usuarioID = 'suporteCoder';
+var notificacoes = '9';
+// const boasVindas = 'Boas Vindas' + usuarioID +  'notificações' + notificacoes
+var boasVindas = "\n    Boas vindas " + usuarioID + " , Notifica\u00E7\u00F5es: " + (parseInt(notificacoes) > 9 ? '+9' : notificacoes) + "\n    ";
+console.log(boasVindas);
+console.log("" + (1 + 1) * 30);
+console.log("Motor " + caracteristicas);
 //# sourceMappingURL=ecmascript.js.map

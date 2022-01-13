@@ -69,3 +69,15 @@ function contagemRegressiva(inicio: number = 5,
     console.log(n)
     console.log(p)
     console.log(w)
+
+    //Template String
+
+    const usuarioID: string = 'suporteCoder'
+    const notificacoes: string = '9'
+    // const boasVindas = 'Boas Vindas' + usuarioID +  'notificações' + notificacoes
+    const boasVindas = `
+    Boas vindas ${usuarioID} , Notificações: ${parseInt(notificacoes) > 9 ? '+9' : notificacoes}
+    `
+    console.log(boasVindas)
+    console.log(`${(1 + 1) * 30 }`)
+    console.log(`Motor ${caracteristicas}`)
