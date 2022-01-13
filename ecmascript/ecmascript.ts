@@ -33,3 +33,11 @@ function contagemRegressiva(inicio: number = 5,
     const turmaB: string[] = [ 'Maria', 'João', 'Lopes', ...turmaA]
 
     console.log(turmaB)
+
+    function retornarArray(...args: number[]): number{
+        return args
+    }
+
+    const numeros = retornarArray(1,2,3,4,5,6)
+    console.log(numeros)
+    console.log(retornarArray(...numbers))
