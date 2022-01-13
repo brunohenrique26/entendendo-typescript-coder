@@ -34,10 +34,20 @@ function contagemRegressiva(inicio: number = 5,
 
     console.log(turmaB)
 
-    function retornarArray(...args: number[]): number{
+    function retornarArray(...args: number[]): number[]{
         return args
     }
 
     const numeros = retornarArray(1,2,3,4,5,6)
     console.log(numeros)
     console.log(retornarArray(...numbers))
+
+    // Destructuring (Array)
+
+    const caracteristicas = ['motor Ztec 1.8', 2020]
+    //const motor = caracteristicas[0]
+    //const ano = caracteristicas[1]
+
+    const [motor, ano] = caracteristicas
+    console.log(motor)
+    console.log(ano)

@@ -35,4 +35,11 @@ function retornarArray() {
 var numeros = retornarArray(1, 2, 3, 4, 5, 6);
 console.log(numeros);
 console.log(retornarArray.apply(void 0, numbers));
+// Destructuring (Array)
+var caracteristicas = ['motor Ztec 1.8', 2020];
+//const motor = caracteristicas[0]
+//const ano = caracteristicas[1]
+var motor = caracteristicas[0], ano = caracteristicas[1];
+console.log(motor);
+console.log(ano);
 //# sourceMappingURL=ecmascript.js.map
