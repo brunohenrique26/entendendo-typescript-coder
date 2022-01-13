@@ -1,29 +1,38 @@
 "use strict";
-var Data = /** @class */ (function () {
-    function Data(dia, mes, ano) {
-        if (dia === void 0) { dia = 26; }
-        if (mes === void 0) { mes = 2; }
-        if (ano === void 0) { ano = 1991; }
+class Data {
+    constructor(dia = 26, mes = 2, ano = 1991) {
         this.dia = dia;
         this.mes = mes;
         this.ano = ano;
     }
-    return Data;
-}());
-var aniversario = new Data(26, 2, 1991);
+}
+const aniversario = new Data(26, 2, 1991);
 console.log(aniversario);
 // ok
-var Data1 = /** @class */ (function () {
-    function Data1(dia, mes, ano) {
-        if (dia === void 0) { dia = 26; }
-        if (mes === void 0) { mes = 2; }
-        if (ano === void 0) { ano = 1991; }
+class Data1 {
+    constructor(dia = 26, mes = 2, ano = 1991) {
         this.dia = dia;
         this.mes = mes;
         this.ano = ano;
     }
-    return Data1;
-}());
-var aniversario1 = new Data1(26, 2, 1991);
+}
+const aniversario1 = new Data1(26, 2, 1991);
 console.log(aniversario1);
+class Produto {
+    constructor(nome, preco, desconto = 0) {
+        this.nome = nome;
+        this.preco = preco;
+        this.desconto = desconto;
+    }
+    precoComDesconto() {
+        return (this.preco * this.desconto);
+    }
+    resumo() {
+        return `${this.nome} custa R$ ${this.precoComDesconto()} (${this.desconto * 10})}`;
+    }
+}
+const celular = new Produto('iphone', 100);
+const celular2 = new Produto('Samsung', 10, 0);
+celular2.desconto = 0.06;
+console.log(celular2.resumo());
 //# sourceMappingURL=classes.js.map
