@@ -67,9 +67,35 @@ const carro1 = new Carro('For', 'Ka', 185);
 // console.log(carro1.acelerar())
 // Henrança
 class Ferrari extends Carro {
+    constructor(modelo, velocidadeMaxima) {
+        super('Ferrari', modelo, velocidadeMaxima);
+    }
+    acelerar() {
+        return this.alterarVelocidade(20);
+    }
+    frear() {
+        return this.alterarVelocidade(-15);
+    }
 }
-const f40 = new Ferrari('ferrari', 'f40', 324);
+const f40 = new Ferrari('f40', 324);
 console.log(`${f40.marca} ${f40.modelo}`);
 console.log(f40.acelerar());
 console.log(f40.frear());
+//Getters & Setters
+class Pessoa {
+    constructor() {
+        this._idade = 0;
+    }
+    get idade() {
+        return this._idade;
+    }
+    set idade(valor) {
+        if (valor >= 0 && valor <= 120) {
+            this._idade = valor;
+        }
+    }
+}
+const pessoa1 = new Pessoa;
+pessoa1.idade = 10;
+console.log(pessoa1);
 //# sourceMappingURL=classes.js.map

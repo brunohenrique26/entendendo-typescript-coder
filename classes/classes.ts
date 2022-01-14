@@ -87,9 +87,40 @@ const carro1 = new Carro('For', 'Ka', 185)
 // Henrança
 class Ferrari extends Carro {
 
+constructor(modelo: string, velocidadeMaxima: number){
+    super('Ferrari', modelo, velocidadeMaxima)
 }
 
-const f40 = new Ferrari('ferrari', 'f40', 324)
+    public acelerar(): number {
+        return this.alterarVelocidade(20)
+    }
+
+    public frear(): number {
+        return this.alterarVelocidade(-15)
+    }
+
+}
+
+const f40 = new Ferrari( 'f40', 324)
 console.log(`${f40.marca} ${f40.modelo}`)
 console.log(f40.acelerar())
 console.log(f40.frear())
+
+//Getters & Setters
+class Pessoa {
+    private _idade: number = 0
+
+    get idade(): number {
+        return this._idade
+    }
+
+    set idade(valor: number) {
+        if(valor >= 0 && valor <= 120) {
+            this._idade = valor
+        }
+    }
+}
+
+const pessoa1 = new Pessoa
+pessoa1.idade = 10
+console.log(pessoa1)
