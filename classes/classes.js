@@ -110,4 +110,26 @@ Matematica.PI = 3.1416;
 // console.log(m1.areaCirc(4))
 // console.log(new Matematica().areaCirc(4))
 console.log(Matematica.areaCirc(4));
+//Classe abstrata
+class Calculo {
+    constructor() {
+        this.resultado = 0;
+    }
+    getResultado() {
+        return this.resultado;
+    }
+}
+class Soma extends Calculo {
+    executar(...numeros) {
+        this.resultado = numeros.reduce((t, a) => t + a);
+    }
+}
+class Multiplicacao extends Calculo {
+    executar(...numeros) {
+        this.resultado = numeros.reduce((t, a) => t + a);
+    }
+}
+let c1 = new Soma();
+c1.executar(2, 3, 4, 5);
+console.log(c1.getResultado());
 //# sourceMappingURL=classes.js.map
