@@ -169,3 +169,21 @@ class Multiplicacao extends Calculo {
 let c1 = new Soma()
 c1.executar(2,3,4,5)
 console.log(c1.getResultado())
+
+//Construtor privado & Singleton
+
+class Unico {
+    private static instance: Unico = new Unico
+    private constructor() {}
+
+    static getInstance(): Unico {
+        return Unico.instance
+    }
+
+    agora() {
+        return new Date
+    }
+}
+
+//const errado = new Unico()
+console.log(Unico.getInstance().agora)
