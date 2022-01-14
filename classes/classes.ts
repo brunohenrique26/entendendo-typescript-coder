@@ -124,3 +124,20 @@ class Pessoa {
 const pessoa1 = new Pessoa
 pessoa1.idade = 10
 console.log(pessoa1)
+
+// Atributos e Metódos Staticos
+
+class Matematica {
+    static PI: number = 3.1416
+
+    static areaCirc(raio:number): number {
+        return this.PI * raio * raio
+    }
+}
+
+// const m1 = new Matematica
+// m1.PI = 4.2
+// console.log(m1.areaCirc(4))
+
+// console.log(new Matematica().areaCirc(4))
+console.log(Matematica.areaCirc(4))
