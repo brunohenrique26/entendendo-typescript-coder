@@ -1,21 +1,6 @@
 "use strict";
-var Geometria;
-(function (Geometria) {
-    let Area;
-    (function (Area) {
-        const PI = 3.14;
-        function circunferencia(raio) {
-            return PI * Math.pow(raio, 2);
-        }
-        Area.circunferencia = circunferencia;
-        function retangulo(base, altura) {
-            return base * altura;
-        }
-        Area.retangulo = retangulo;
-    })(Area = Geometria.Area || (Geometria.Area = {}));
-})(Geometria || (Geometria = {}));
-const PI = 2.19;
+// const PI = 2.19
 console.log(Geometria.Area.circunferencia(10));
-console.log(Geometria.Area.retangulo(10, 20));
-console.log(PI);
+console.log(Geometria.Area.retangulo(12, 10));
+//console.log(PI)
 //# sourceMappingURL=namespace.js.map
