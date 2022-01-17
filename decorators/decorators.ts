@@ -4,14 +4,14 @@ function logarClasse(construtor: Function) {
     console.log(construtor)
 }
 
-function decoratorVazio(_: Function) {}
+function decoratorVazio(_: Function) { }
 
 function logarClasseSe(valor: boolean) {
     return valor ? logarClasse : decoratorVazio
 }
 
-function decorator(obj: { a: string, b: number}) {
-    return function(_: Function ): void {
+function decorator(obj: { a: string, b: number }) {
+    return function (_: Function): void {
         console.log(obj.a + '' + obj.b)
     }
 }
@@ -50,7 +50,7 @@ class Eletrodomestico {
 }
 
 function imprimivel(construtor: Function) {
-    construtor.prototype.imprimir = function() {
+    construtor.prototype.imprimir = function () {
         console.log(this)
     }
 }
@@ -65,10 +65,10 @@ class ContaCorrente {
     constructor(saldo: number) {
         this.saldo = saldo
     }
-   
+
     @congelar
     sacar(valor: number) {
-        if(valor <= this.saldo){
+        if (valor <= this.saldo) {
             this.saldo -= valor
             return true
         } else {
@@ -96,4 +96,21 @@ function congelar(alvo: any, nomeMetodo: string, descritor: PropertyDescriptor) 
     console.log(alvo)
     console.log(nomeMetodo)
     descritor.writable = false
+}
+
+function naoNegativo(alvo: any, nomePropriedade: string) {
+    delete alvo[nomePropriedade]
+    Object.defineProperty(alvo, nomePropriedade, {
+        get: function (): any {
+            return alvo["_" + nomePropriedade]
+        },
+        set: function (valor: any): void {
+            if (valor <= 0) {
+                throw new Error('Saldo Inválido')
+            } else {
+                alvo["_" + nomePropriedade] = valor
+            }
+        }
+
+    })
 }

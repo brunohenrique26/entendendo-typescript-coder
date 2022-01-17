@@ -81,4 +81,20 @@ function congelar(alvo, nomeMetodo, descritor) {
     console.log(nomeMetodo);
     descritor.writable = false;
 }
+function naoNegativo(alvo, nomePropriedade) {
+    delete alvo[nomePropriedade];
+    Object.defineProperty(alvo, nomePropriedade, {
+        get: function () {
+            return alvo["_" + nomePropriedade];
+        },
+        set: function (valor) {
+            if (valor <= 0) {
+                throw new Error('Saldo Inválido');
+            }
+            else {
+                alvo["_" + nomePropriedade] = valor;
+            }
+        }
+    });
+}
 //# sourceMappingURL=decorators.js.map
