@@ -58,3 +58,42 @@ function imprimivel(construtor: Function) {
 //(<any>new Eletrodomestico()).imprimir()
 const eletro = new Eletrodomestico()
 eletro.imprimir && eletro.imprimir()
+
+// Decorator em metodos
+class ContaCorrente {
+    private saldo: number
+    constructor(saldo: number) {
+        this.saldo = saldo
+    }
+   
+    @congelar
+    sacar(valor: number) {
+        if(valor <= this.saldo){
+            this.saldo -= valor
+            return true
+        } else {
+            return false
+        }
+    }
+
+    @congelar
+    getSaldo() {
+        return this.saldo
+    }
+}
+
+const cc = new ContaCorrente(10248.57)
+cc.sacar(500)
+console.log(cc.getSaldo())
+
+// cc.getSaldo = function(){
+//     return this['saldo'] + 700
+// }
+console.log(cc.getSaldo())
+
+//Object,freeze()
+function congelar(alvo: any, nomeMetodo: string, descritor: PropertyDescriptor) {
+    console.log(alvo)
+    console.log(nomeMetodo)
+    descritor.writable = false
+}
