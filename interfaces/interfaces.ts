@@ -43,3 +43,51 @@ meuCliente.nome = 'Han'
 saudarComOla(meuCliente)
 meuCliente.saudar('Solo')
 console.log(meuCliente.ultimaCompra)
+
+// Interface Função
+
+
+interface FuncaoCalculo {
+    (a: number, b: number): number
+}
+
+let potencia: FuncaoCalculo
+
+potencia= function (base: number, exp: number): number {
+    return Array(exp).fill(base).reduce((t,a) => t * a)
+}
+
+console.log(potencia(3,10))
+console.log(Math.pow(3,10))
+console.log(3**10)
+
+// Herança
+
+interface A {
+    a(): void
+}
+
+interface B {
+    b(): void
+}
+
+interface ABC extends A,B {
+    c(): void
+}
+
+class RealAB implements A, B {
+    a(): void {}
+    b(): void {}
+}
+
+class RealABC implements ABC {
+    a(): void {}
+    b(): void {}
+    c(): void {}
+}
+
+abstract class AbstrataABD implements A,B {
+    a(): void {}
+    b(): void {}
+    abstract d(): void
+}
