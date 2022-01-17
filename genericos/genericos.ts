@@ -4,7 +4,7 @@ function echo(objeto: any) {
 
 console.log(echo('João').length)
 console.log(echo(27))
-console.log(echo({ nome: 'João', idade: 27}))
+console.log(echo({ nome: 'João', idade: 27 }))
 
 
 // Usando Generics
@@ -14,11 +14,11 @@ function echo2<T>(objeto: T): T {
 
 console.log(echo2('João').length)
 console.log(echo2<number>(27))
-console.log(echo({ nome: 'João', idade: 27}))
+console.log(echo({ nome: 'João', idade: 27 }))
 
 // Generics disponiveis na API
 
-const avaliacoes: Array<number> = [10,9.3,7.7]
+const avaliacoes: Array<number> = [10, 9.3, 7.7]
 avaliacoes.push(8.4)
 // avaliacoes.push('5.0)
 console.log(avaliacoes)
@@ -28,20 +28,20 @@ function imprimir<T>(args: T[]) {
     args.forEach(elemento => console.log(elemento))
 }
 
-imprimir([1,2,3])
-imprimir<number>([1,2,3])
-imprimir<string>(['Ana', 'Bruno','Carlos'])
-imprimir<{nome: string, idade: number}>([
-    { nome: ' Fulano', idade: 22},
-    { nome: 'Cicrano', idade: 23},
-    { nome: 'Beltrano', idade: 24}
+imprimir([1, 2, 3])
+imprimir<number>([1, 2, 3])
+imprimir<string>(['Ana', 'Bruno', 'Carlos'])
+imprimir<{ nome: string, idade: number }>([
+    { nome: ' Fulano', idade: 22 },
+    { nome: 'Cicrano', idade: 23 },
+    { nome: 'Beltrano', idade: 24 }
 ])
 
-type Aluno = { nome: string, idade: number}
+type Aluno = { nome: string, idade: number }
 imprimir<Aluno>([
-    { nome: ' Fulano', idade: 22},
-    { nome: 'Cicrano', idade: 23},
-    { nome: 'Beltrano', idade: 24}
+    { nome: ' Fulano', idade: 22 },
+    { nome: 'Cicrano', idade: 23 },
+    { nome: 'Beltrano', idade: 24 }
 ])
 
 // Tipo Generico
@@ -51,8 +51,8 @@ console.log(chamarEcho<string>('Algumas Coisa'))
 
 //Class com generics
 
-abstract class OperacaoBinaria<T,R> {
-    constructor(public operando1: T, public operando2:T) {}
+abstract class OperacaoBinaria<T, R> {
+    constructor(public operando1: T, public operando2: T) { }
 
     abstract executar(): R
 }
@@ -68,11 +68,11 @@ class SomaBinaria extends OperacaoBinaria<number, number> {
     }
 }
 
-console.log(new SomaBinaria(3,4).executar())
+console.log(new SomaBinaria(3, 4).executar())
 
 class DiferencaEntreDatas extends OperacaoBinaria<Data, string> {
     getTime(data: Data): number {
-        let { dia, mes, ano} = data
+        let { dia, mes, ano } = data
         return new Date(`${mes}/${dia}/${ano}`).getTime()
     }
 
@@ -80,11 +80,49 @@ class DiferencaEntreDatas extends OperacaoBinaria<Data, string> {
         const t1 = this.getTime(this.operando1)
         const t2 = this.getTime(this.operando2)
         const diferenca = Math.abs(t1 - t2)
-        const dia = 100 * 60 * 60* 24
+        const dia = 100 * 60 * 60 * 24
         return `${Math.ceil(diferenca / dia)} dias(s)`
     }
 }
 
-const d1 = new Data(1,2,2020)
-const d2 = new Data(5,5,2020)
-console.log(new DiferencaEntreDatas(d1,d2).executar);
+const d1 = new Data(1, 2, 2020)
+const d2 = new Data(5, 5, 2020)
+console.log(new DiferencaEntreDatas(d1, d2).executar);
+
+// Desfio Classe Fila
+//Atributo: fila (Array)
+// Métodos: entrar, proximo, imprimir
+class Fila<T> {
+    private fila: Array<T>
+    constructor(...args: T[]) {
+        this.fila = args
+    }
+
+    entrar(elemento: T) {
+        this.fila.push(elemento)
+    }
+
+    proximo(): T | null {
+        if(this.fila.length >= 0 && this.fila[0]){
+            const primeiro = this.fila[0]
+            this.fila.splice(0,1)
+            return primeiro
+        } else {
+            return null
+        }
+    }
+
+    imprimir() {
+        console.log(this.fila)
+    }
+}
+
+
+const fila = new Fila<string>('Gui', 'PEdro', 'Ana', 'Lu')
+
+fila.imprimir()
+fila.entrar('Rafael')
+fila.imprimir()
+console.log(fila.proximo())
+console.log(fila.proximo())
+fila.imprimir()
